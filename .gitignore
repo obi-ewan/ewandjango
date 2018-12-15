@@ -1,5 +1,12 @@
 Created by https://www.gitignore.io
 
+*.pyc
+db.sqlite3
+myvenv
+__pycache__
+local_settings.py
+
+
 ### IDEA ##
 
 overs JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
