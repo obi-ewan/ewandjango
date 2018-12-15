@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.utils import timezone
 
 from .models import Post
 
@@ -23,4 +24,22 @@ def detail(request, post_id):
         template_name='blog/detail.html',
         context={'post': post}
     )
+
+
+def create(request):
+    return render(
+        request,
+        template_name='blog/create.html',
+    )
+
+
+def post(request):
+    post = Post(
+        title=request.POST['post_title'],
+        body=request.POST['post_body'],
+        pub_date=timezone.now()
+    )
+    post.save()
+
+    return HttpResponseRedirect('/')
 
