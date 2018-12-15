@@ -16,6 +16,6 @@ class Post(models.Model):
             self.pub_date
         )
 
-    def was_published_receently(self):
+    def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
